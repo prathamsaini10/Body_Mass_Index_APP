@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var bgColor;
   bool isfeet = true;
   @override
-  void clearTextFields() {
+  Future<void> clearTextFields() async {
     tf1.clear();
     tf2.clear();
     tf3.clear();
@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             backgroundColor: Colors.blueGrey.shade300,
-            title: Center(
+            title: const Center(
                 child: Text(
                   'BMI Calculator',
                   style: TextStyle(
@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 80,
                       child: Text(
                         'BMI',
@@ -91,8 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     Row(children: [
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
+                      const Padding(
+                        padding: EdgeInsets.all(20.0),
                         child: Text('Weight:',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: TextField(
                           keyboardType: TextInputType.number,
                           controller: tf1,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             label: Text(
                               'Enter Weight (In Kg)',
                               style: TextStyle(fontSize: 17),
@@ -118,8 +118,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 80,
                       child: Row(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
+                          const Padding(
+                            padding: EdgeInsets.all(20.0),
                             child: Text('Heigth:',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -127,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 )),
                           ),
                           if (isfeet)
-                            Text('feet:',
+                            const Text('feet:',
                                 style: TextStyle(
                                   fontSize: 19,
                                 )),
@@ -137,13 +137,13 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: TextField(
                                 keyboardType: TextInputType.number,
                                 controller: tf2,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   prefixIcon: Icon(Icons.height_sharp),
                                 ),
                               ),
                             ),
                           if (isfeet)
-                            Text('Inch:',
+                            const Text('Inch:',
                                 style: TextStyle(
                                   fontSize: 19,
                                 )),
@@ -153,13 +153,13 @@ class _MyHomePageState extends State<MyHomePage> {
                               child: TextField(
                                 keyboardType: TextInputType.number,
                                 controller: tf3,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   prefixIcon: Icon(Icons.height_sharp),
                                 ),
                               ),
                             ),
                           if (!isfeet)
-                            Text('Centimeter:',
+                            const Text('Centimeter:',
                                 style: TextStyle(
                                   fontSize: 19,
                                 )),
@@ -169,7 +169,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 child: TextField(
                                     keyboardType: TextInputType.number,
                                     controller: tf2,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                       prefixIcon: Icon(Icons.height_sharp),
                                     )))
                         ],
@@ -178,13 +178,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: ToggleSwitch(
-                        activeBgColor: [Colors.blueGrey],
+                        activeBgColor: const [Colors.blueGrey],
                         inactiveBgColor: Colors.white,
                         minWidth: 100,
                         initialLabelIndex: 0,
                         cornerRadius: 10,
                         totalSwitches: 2,
-                        labels: ['Feet', 'Centimeter'],
+                        labels: const ['Feet', 'Centimeter'],
                         changeOnTap: true,
                         onToggle: (index) {
                           setState(() {
@@ -201,7 +201,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.blueGrey,
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                                 borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(30),
                                     topRight: Radius.circular(30)))),
@@ -268,7 +268,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             }
                           }
                         },
-                        child: Text(
+                        child: const Text(
                           'calculate',
                           style: TextStyle(
                               fontSize: 20,
@@ -278,7 +278,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Padding(
                       padding: const EdgeInsets.all(40.0),
                       child: Text("$result",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 18,
                           )),
                     )

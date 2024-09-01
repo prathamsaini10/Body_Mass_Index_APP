@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'main.dart';
 
 class SplashScreeen extends StatefulWidget {
+  const SplashScreeen({super.key});
+
   @override
   State<SplashScreeen> createState() => _SplashScreeenState();
 }
@@ -19,7 +20,7 @@ class _SplashScreeenState extends State<SplashScreeen>
 
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
 
     _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
@@ -28,7 +29,7 @@ class _SplashScreeenState extends State<SplashScreeen>
       if (status == AnimationStatus.completed) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => MyHomePage()),
+          MaterialPageRoute(builder: (context) => const MyHomePage()),
         );
       }
     });
@@ -46,7 +47,7 @@ class _SplashScreeenState extends State<SplashScreeen>
         child: Center(
           child: FadeTransition(
             opacity: _animation,
-            child: Column(
+            child: const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Your logo or text here
